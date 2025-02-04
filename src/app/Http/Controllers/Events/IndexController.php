@@ -4,13 +4,18 @@ namespace App\Http\Controllers\Events;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\EventResource;
-use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
     public function __invoke()
     {
-        $events = Event::all();
-        return EventResource::collection($events);
+        $user = Auth::user();
+
+        $events = $user->events;
+        $enrolledEvents = $user->enrolledEvents;
+
+        $allEvents = $events->merge($enrolledEvents);
+        return EventResource::collection($allEvents);
     }
 }

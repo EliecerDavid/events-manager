@@ -42,6 +42,6 @@ class Event extends Model
             foreignPivotKey: 'event_id',
             relatedPivotKey: 'participant_id'
         )->withPivot(columns: ['added_by'])
-        ->using(EventParticipant::class);
+            ->using(EventParticipant::class);
     }
 }
