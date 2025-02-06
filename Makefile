@@ -16,3 +16,9 @@ test:           ## run tests
 
 coverage:       ## run test coverage report
 	docker compose run --rm app php artisan test --coverage
+
+pint_analyze:   ## analyze errors of style of code with Laravel pint
+	docker compose run --rm app ./vendor/bin/pint -v
+
+pint_repair:    ## repair style of code with Laravel pint
+	docker compose run --rm app ./vendor/bin/pint --repair
