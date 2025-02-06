@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Events;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\EventParticipantResource;
 use App\Models\Event;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class IndexParticipantsController extends Controller
 {

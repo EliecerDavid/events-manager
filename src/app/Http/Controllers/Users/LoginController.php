@@ -23,7 +23,7 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        $user = User::where('username',  $credentials['username'])
+        $user = User::where('username', $credentials['username'])
             ->first();
 
         if (! $user || ! Hash::check($credentials['password'], $user->password)) {
